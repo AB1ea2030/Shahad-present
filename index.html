@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>shahad birthday 🎂</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Metal+Mania&family=Cairo:wght@400;700&display=swap');
+
+    body {
+      background: linear-gradient(-135deg, #0A192F, #112D4E, #3A7CA5, #0093E9);
+      background-size: 400% 400%;
+      animation: gradientMove 15s ease infinite;
+      min-height: 100vh;
+      margin: 0;
+      font-family: 'Cairo', sans-serif;
+      text-align: center;
+      overflow-x: hidden;
+      color: #e0f7ff;
+      direction: rtl; 
+    }
+
+    @keyframes gradientMove {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    h1 {
+      font-family: 'Metal Mania', cursive;
+      font-size: 3.2em;
+      margin-top: 20px;
+      color: #8ED6FF;
+      text-shadow: 0 0 10px #1B263B, 0 0 25px #1B263B;
+      animation: glow 2.5s infinite alternate;
+    }
+
+    @keyframes glow {
+      from { text-shadow: 0 0 10px #3A7CA5, 0 0 25px #3A7CA5; }
+      to { text-shadow: 0 0 20px #B3E5FC, 0 0 35px #B3E5FC; }
+    }
+
+    p {
+      font-size: 1.3em;
+      margin-top: 10px;
+      color: #d9f6ff;
+      text-shadow: 0 0 4px #000;
+      line-height: 1.6;
+    }
+
+    img {
+      width: 260px;
+      margin-top: 25px;
+      border-radius: 20px;
+      box-shadow: 0 0 25px rgba(0,147,233,0.5), 0 8px 25px rgba(0,0,0,0.5);
+      transition: transform 0.4s ease, opacity 0.4s ease;
+    }
+
+    img:hover {
+      transform: scale(1.07) rotate(-1deg);
+      opacity: 0.9;
+      box-shadow: 0 0 40px rgba(0,147,233,0.8), 0 12px 35px rgba(0,0,0,0.7);
+    }
+
+    button {
+      margin-top: 20px;
+      background: rgba(0,30,60,0.8);
+      border: 2px solid #1E6091;
+      color: #A9EAFE;
+      padding: 12px 30px;
+      font-size: 1.1em;
+      font-weight: bold;
+      border-radius: 25px;
+      cursor: pointer;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.6);
+      transition: all 0.3s ease-in-out;
+    }
+
+    button:hover {
+      transform: scale(1.05);
+      background: rgba(0,50,100,0.6);
+      color: #D9F6FF;
+      box-shadow: 0 0 20px rgba(0,147,233,0.4);
+    }
+
+    .caption {
+      font-size: 1.1em;
+      margin-bottom: 10px;
+      color: #b3e5fc;
+      background-color: rgba(10,30,50,0.7);
+      padding: 10px 15px;
+      border-radius: 15px;
+      box-shadow: 0 0 12px rgba(0,147,233,0.3) inset;
+    }
+
+    .page {
+      display: none;
+      margin: 20px auto;
+      padding: 20px;
+      border-radius: 15px;
+      background: rgba(20,30,50,0.6);
+      box-shadow: 0 0 15px rgba(0,147,233,0.3);
+      max-width: 800px;
+      animation: fadeIn 0.8s ease;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .heart {
+      position: fixed;
+      top: 0;
+      font-size: 20px;
+      animation: fall 4s linear forwards;
+      pointer-events: none;
+      opacity: 0.8;
+    }
+
+    @keyframes fall {
+      0% { transform: translateY(0); opacity: 1; }
+      100% { transform: translateY(100vh); opacity: 0; }
+    }
+
+    .image-box img {
+      width: 100%;
+      max-width: 300px;
+      border-radius: 12px;
+      transition: transform 0.3s ease, opacity 0.3s ease;
+      box-shadow: 0 0 20px rgba(0,147,233,0.4);
+    }
+
+    .image-box img:hover {
+      transform: scale(1.05);
+      opacity: 0.9;
+    }
+
+    .video-box video {
+      width: 100%;
+      max-width: 400px;
+      border-radius: 12px;
+      box-shadow: 0 0 15px rgba(0,147,233,0.5);
+      margin-bottom: 20px;
+    }
+
+    .video-caption {
+      font-size: 1em;
+      color: #b3e5fc;
+      margin-bottom: 5px;
+    }
+
+    #giftScreen {
+      position: fixed;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(180deg, rgba(2,6,23,0.9), rgba(3,10,30,0.95));
+      z-index: 9999;
+      transition: opacity 0.5s ease;
+    }
+
+    #giftScreen.hidden {
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    #gift {
+      font-size: 6rem;
+      width: 150px;
+      height: 150px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: radial-gradient(circle at 30% 20%, #ffd9a6, #ffb36b);
+      border-radius: 22px;
+      box-shadow: 0 10px 40px rgba(0,0,0,0.6), 0 0 30px rgba(255,180,90,0.25);
+      cursor: pointer;
+      transform: translateY(0);
+      transition: transform 0.6s cubic-bezier(.2,.9,.2,1), box-shadow 0.3s;
+      user-select: none;
+      margin-bottom: 10px;
+    }
+
+    #gift.open {
+      transform: translateY(-15px) scale(1.05) rotate(-8deg);
+      box-shadow: 0 18px 60px rgba(0,0,0,0.7), 0 0 50px rgba(255,180,90,0.35);
+    }
+
+    #message {
+      display: none;
+      text-align: center;
+      color: #e6f9ff;
+      max-width: 90%;
+    }
+
+    #message h2 {
+      margin: 8px 0;
+      font-size: 2em;
+      color: #fff8e6;
+      text-shadow: 0 0 12px rgba(0,0,0,0.6);
+    }
+
+    #message p {
+      margin: 0 0 12px 0;
+      font-size: 1.1em;
+      color: #dff7ff;
+    }
+
+    #continueBtn {
+      background: linear-gradient(90deg, #1E6091, #0093E9);
+      border: none;
+      padding: 10px 24px;
+      border-radius: 999px;
+      color: white;
+      font-weight: 700;
+      cursor: pointer;
+      box-shadow: 0 8px 18px rgba(0,0,0,0.5);
+    }
+
+    .gift-hearts {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      overflow: hidden;
+      z-index: 9998;
+    }
+
+    @keyframes floatUp {
+      0% { transform: translateY(0) scale(1); opacity: 1; }
+      100% { transform: translateY(-800px) scale(1.4); opacity: 0; }
+    }
+
+    @media (max-width: 520px) {
+      #gift { width: 120px; height: 120px; font-size: 4.2rem; }
+      h1 { font-size: 2.2em; }
+    }
+  </style>
+</head>
+<body>
+  <div id="giftScreen" aria-hidden="false">
+    <div style="display:flex; flex-direction:column; align-items:center; gap:8px;">
+      <div id="gift" title="إضغط لفتح الهدية">🎁</div>
+      <div id="message" role="dialog" aria-modal="true">
+        <h2>عيددد ميلاددد سعيدد ثهثه 😋</h2>
+        <p>يمه والله ببكييييي ثهددد كبرتتت 😭 المهم عيد ميلاد سعيد بوكيي 😋</p>
+        <button id="continueBtn">اضغطي لسه في البداية علا فكرة نيهيهيي😋</button>
+      </div>
+    </div>
+  </div>
+
+  <div id="giftHeartsContainer" class="gift-hearts" aria-hidden="true"></div>
+
+
+  <div id="mainContent" style="display:none;">
+    <div id="hearts-container"></div>
+    <h1>هابي بيرث دايي تو يووو شهدد 😋😋</h1>
+    <p>🎂نيهيهيي ثرتي 17 يارب تعيشين بصحه و عافيه طول عمرك 😋🎂<br>تؤتؤتؤتؤ ثهد كبرت سنه عقبال ال 999</p>
+    <button onclick="togglePages()">🎂تهانييي عيد ميلادكك 😋😋🎂</button>
+
+    <div id="pages-container" style="display:none;">
+      <div id="pages-list">
+        <button onclick="showPage(1)">تهنئة معصفرة🥵</button>
+        <button onclick="showPage(2)">تهنئة مولمية😜</button>
+        <button onclick="showPage(3)">تهنئة مكوننة🥹</button>
+        <button onclick="showPage(4)">تهنئة موبوبئ🧑🏿‍🍳</button>
+        <button onclick="showPage(5)">تهنئة محفصه🙂‍↕️</button>
+        <button onclick="showPage(6)">تهنئة موكورمة💅🏿</button>
+        <button onclick="showPage(7)">تهنئة موجمللة👽</button>
+        <button onclick="showPage(8)">تهنئة موبوبة🤤</button>
+        <button onclick="showPage(9)">تهنئة مونوننة👴🏻</button>
+        <button onclick="showPage(10)">تهنئة مرة😍</button>
+        <button onclick="showPage(11)">متركنه 😛</button>
+        <button onclick="showPage(12)">تهنئة مولراة🩶</button>
+        <button onclick="showPage(13)">تهنئة مفلكسة😳</button>
+        <button onclick="showPage(14)">تهنئة معبدله 😉</button>
+        <button onclick="showPage(15)">تهنئة مزدلفه😎</button>
+        <button onclick="showPage(16)">تهنئة موحوسنه👀</button>
+        <button onclick="showPage(17)">تهنئة مبوززة 😋</button>
+      </div>
+
+      <div class="page" id="page1">
+  <h2>العصفور 😋</h2>
+  <div class="video-box">
+    <video controls>
+      <source src="al3sforvid.mp4" type="video/mp4">
+    </video>
+  </div>
+  <button onclick="backToList()">العودة للقائمة</button>
+</div>
+      <div class="page" id="page2"><h2>لمياء 😋</h2>عيييددد ميلاااد سعيد يا افضل شهوده بعييدا. عن اي كلام و رسميات و كذا 
+تكفين انت اول رسامه كذا التقي فيها مب منافقه ولطيفه و ع نياتك حتى طريقه كلامك و اسلوب يجنننن ما اكذب حتى صرنا نقلد كلامك من كثر ما انو مميزه و تجنني 😭🎀🎀💖ما توقعت ولا مره بنصير صحبات مرا احبك ياخي كمان اول صديقه ليبيه لي احبك عن جد انا ما اعبر عن مشاعري بس بهذي رساله بحجي جدددددد 😭😭🎀💖💖💖وربي كعبه كنت ابي اسوي رسمه احسن و يومين احاول ازبط وضع بس والله ما فضيت اول ما فضيت اتصلت علي خويتي عشان نطلع 👿💔وكانت اول مره امي تقبللل لهيك رحت و في سياره حاولت اكمل رسمه ما قدرت😭😭💗💗💗والله اسفه تكفين كان نفسي اسوي رسمه احسن تستاهلي كللللل خير يا افضل شهوده و عيد ميلاد 17سعيد ما بوكي فضائيتييييي 
+صح صارلنا فتره ساحبين ع انستا و ما نسولف مرا بس يلا عوافي اتمنى نضل اصحاب ولا اتغير عليك و لو زعلتك باي شي لا تاخديني بجديه حبيبتيييي☹️💗💗💗رسمه بسيطه لوحده تجنن زيك اخخخ كنت ابا اسوي احسن والله قصرت بس ترا بسوي لك وحده متاخره احسن يعمري 
+و اتمنى ذا. العمر يكون تحسن عمر لك و تتطورين بدراستك و ان شاء الله تنجحي في توجيهي بافضل نقطه ☹️💗وتدرسي يلي تحبينه يا افضل رسامه موااااح بوسه من قلب يعيوني احس مهما عبرت ما وفيت حقك اخخخ بس صدقيني صح ما نعرف بعض من فتره كبيره بس تراني اعزك يا افضل ليبيه😋🩷🩷🩷💘💘🌸<p></p><button onclick="backToList()">العودة للقائمة</button></div>
+      <div class="page" id="page3"><h2>كوني 😋</h2>هابيي بيرثديييي ماي قرلل اتمنى تعيشي احسن لحضه بحياتك وهم سويتلك فان ارت اتمنى تعجبيه وهذي هديه مني كعيد ميلادك يا قلبييي<p></p><button onclick="backToList()">العودة للقائمة</button></div>
+      <div class="page" id="page4"><h2>موب 😋</h2>احم احم شهد happy birthday اليوم للاسف بتكملي 17وبتصيري اكبر مني💔 
+و برضو يعني صراحة ما ندمت اني تعرفت عليك ابدا ابدا حرفيا من احسن الناس الي قابلتهم بالسوشل ميديا يعني انتي بنت لطيفة ومسكينة وكل ذا الكلام الفاضي المهم يعني كما قلت happy  birthday وان شاء الله ربنا ما يحرمنا منك يارب وانتي حرفيا تستاهلي كل خير وبس ذا الي عندي<p></p><button onclick="backToList()">العودة للقائمة</button></div>
+      <div class="page" id="page5"><h2>حفصه 😋</h2>911<p></p><button onclick="backToList()">العودة للقائمة</button></div>
+      <div class="page" id="page6"><h2>اكرم 😋</h2>عيد ميلاد سعيد شهد 😛<p></p><button onclick="backToList()">العودة للقائمة</button></div>
+      <div class="page" id="page7"><h2>جملول 😋</h2>كل عام وانتي بخير شهد وعسى الايام جايه فرحه بالعجوز ويت هو باقي لك ايام انتي لسى؟ ارحمي الزمن ماخليتي فيه شي جايه ماقبل الميلاد وبتكملي مابعد ميلاد، الله يطول بعمرك وhappy birthday always استمري بشخصيتك واسلوبك الحلو وهايلاتك حلوه على فكره✨🌷<p></p><button onclick="backToList()">العودة للقائمة</button></div>
+      <div class="page" id="page8"><h2>بوب 😋</h2>عجوز قريححح كل عام وانتي بخييررر مرت 5125 سنه بزبط على الوقت الي انتي اجبتي فيه ووقت تأسيس حضارك الفرعونيه و ولادى حفيدك فرعون، صرتي قيمه بزياده  حلو كيف انه انتي اقوى وحده ب حضارتك لدرجة انك لسا عايشه معانا ب زمنا الحالي ، كلنا نحبك و احفادك الفراعنه يحبوك، كل عام وانتي بخيييرررᥫ᭡<p></p><button onclick="backToList()">العودة للقائمة</button></div>
+      <div class="page" id="page9"><h2>مونو 😋</h2>يوم ميلاد سعيد يا شهد مع الأسف راح نخسر قاصر أخرى رهيبة و تصير اكسباير 😔💔<p></p><button onclick="backToList()">العودة للقائمة</button></div>
+      <div class="page" id="page10"><h2>امير 😋</h2>كل عام و انتي بخير<p></p><button onclick="backToList()">العودة للقائمة</button></div>
+      <div class="page" id="page11"><h2>تركي 😋</h2>🎉 عيد ميلاد سعيد! 🎂
+
+كل عام وأنت بخير، وعيد ميلادك مليء بالفرح والسعادة!
+أتمنى لك يوماً مميزاً يليق بروحك الجميلة، وسنة جديدة تحمل لك النجاح، والصحة، وتحقيق كل ما تتمنى.
+وجودك في حياتنا يعني الكثير، وأتمنى أن تبقى الابتسامة لا تفارق وجهك أبداً.
+
+كل سنة وأنت أغلى وأجمل من مرّت عليه الأيام 💖<p></p><button onclick="backToList()">العودة للقائمة</button></div>
+      <div class="page" id="page12"><h2>لارا 😋</h2>مرحبا شهد عيد ميلاد سعيد! والله ما بعرف كثير عند بس حكيت معك شوي بساتا بصراحة أسلوبك رهيب وحبيته. إن شاء الله ينعاد عليكي عيد الميلاد وانتي بألف صحيه وهناء ❤️
+<p></p><button onclick="backToList()">العودة للقائمة</button></div>
+      <div class="page" id="page13"><h2>فلكس 😋</h2>كل عام وانت بخير بب قيرلي عقبال المية وعشرين سنة<p></p><button onclick="backToList()">العودة للقائمة</button></div>
+      <div class="page" id="page14"><h2>عبد الله 😋</h2>كل سنة وانتي طيبة بمناسبة يوم ميلادك يا وخيتي شهد 🥰🎊 وعقبال 100 شمعه تانيه كلها سعاده ومحبه وسفنز بالعسل  🎉🎊🥳<p></p><button onclick="backToList()">العودة للقائمة</button></div>
+      <div class="page" id="page15"><h2>مزدلفه 😋</h2>شهد،
+ما بعرف من وين أبدأ، بس بعرف إنّي ما رح أقدر أوصفك بكلمات.
+يمكن الناس يشوفوا الصداقة شي بسيط، بس وجودك بحياتي كان معجزة صغيرة غيّرت كل شي فيّ.
+
+كنتِ النور اللي دخل في أكثر أيامي ظلام، واليد اللي مسكتني لما الكل ترك، والصوت اللي يهمس لي "أنا هون" لما كنت على وشك الانهيار.
+ضحكتك كانت دواء، ودموعك وجع يوجعني أكتر من وجعي.
+معك تعلمت إن الصداقة مش وقت فراغ، بل وطن، وقلبي من زمان ساكن في وطن اسمه شهد.
+
+أخاف من يوم يمر بدونك، من لحظة أحتاجك وما تكوني قريبة،
+وأخاف أكتر من فكرة إنك ما تعرفي قديش بحبك، وقديش وجودك نعمة.
+
+شهد،
+لو بيدي أرجع الزمن، كنت اخترتك ألف مرة.
+أنتِ مو بس صديقتي، أنتِ الأمان اللي ما تبدّله سنين، والروح اللي إذا غابت، يغيب الفرح معها.
+
+شكرًا لأنك كنتِ جنبي بكل لحظة،
+شكرًا لأنك كنتِ صادقة،
+وشكرًا لأنك كنتِ شهد… الاسم اللي صار جزء من نبضي🤍🫂<p></p><button onclick="backToList()">العودة للقائمة</button></div>
+      <div class="page" id="page16"><h2>حسون 😋</h2>هلو ثهوده انا حثون  😋 هيهي ميلاد ثعيد وكل عام وانتي ثهد وشسمه ااااا ميو ميو عقبال ١٨ ونلمس القواصر together 
+Love u lil minor MWAH 👅<p></p><button onclick="backToList()">العودة للقائمة</button></div>
+      <div class="page" id="page17"><h2>بودي 😋</h2>ملحببببب ثهدهدد تشيفك عساكي بخيرر اول شي ب اقوله عيد ميلاد ثعييد يارب والله ببكي متوتر لي يوم كامل اسوي الهدية ذي كله عسانس 😋 تستاهلين كل خير زبد اولا مامعي شي اقوله ثانيا مامعي شي اقوله يارب تعيشين بصحه و عافيه يارب كل احلامك تتحق وماتحتاجين شي ثاني بكل حياتك يارب<p></p><button onclick="backToList()">العودة للقائمة</button></div>
+    </div>
+
+    <img src="https://i.postimg.cc/bYmyNfpt/IMG-20251019-WA0042.jpg" alt="ترشي 😋 رسمه رهيب" />
+    <br><button onclick="showSurprise()">وقت الهزايا😋</button>
+
+    <div id="surprise" style="display:none;">
+      <div class="images-row" style="display:flex; justify-content:center; gap:15px; flex-wrap:wrap; margin-bottom:20px;">
+        <div style="text-align:center;">
+          <p class="video-caption">رسمة بوب 🤤😋</p>
+          <img src="https://i.postimg.cc/ydCsYXJy/IMG-20251019-085813-669.jpg" alt="بوب طبخ 😋" style="border-radius:12px; box-shadow:0 0 15px rgba(0,147,233,0.5); width:150px; height:150px; object-fit:cover;">
+        </div>
+
+        <div style="text-align:center;">
+          <p class="video-caption">رسمة كوني 🥹😋</p>
+          <img src="https://i.postimg.cc/7Yt4TyGT/IMG-20251019-085819-009.jpg" alt="صورة 2" style="border-radius:12px; box-shadow:0 0 15px rgba(0,147,233,0.5); width:150px; height:150px; object-fit:cover;">
+        </div>
+
+        <div style="text-align:center;">
+          <p class="video-caption">رسمه لومياء 😋</p>
+          <img src="https://i.postimg.cc/mZ0kgZ2c/IMG-20251020-WA0008.jpg" alt="ببكي والله تأخرت " style="border-radius:12px; box-shadow:0 0 15px rgba(0,147,233,0.5); width:150px; height:150px; object-fit:cover;">
+        </div>
+
+        <div style="text-align:center;">
+          <p class="video-caption">برضو رسمت لومياء 😋😋</p>
+          <img src="https://via.placeholder.com/150" alt="صورة 4" style="border-radius:12px; box-shadow:0 0 15px rgba(0,147,233,0.5); width:150px; height:150px; object-fit:cover;">
+        </div>
+        
+      <div class="video-box">
+        <p class="video-caption">فيد خاص من موب لثهد 😋</p>
+        <video controls>
+          <source src="mobgift.mp4" type="video/mp4">
+        </video>
+      </div>
+
+      <div class="video-box">
+        <p class="video-caption">فيد خاص من ترشي 😋</p>
+        <video controls>
+          <source src="tshahad.mp4" type="video/mp4">
+        </video>
+      </div>
+      
+        <div class="video-box">
+          <p class="video-caption">فيد خاص من مادوزا 😋</p>
+          <video controls>
+            <source src="madoza-vid.mp4" type="video/mp4">
+          </video>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const gift = document.getElementById('gift');
+    const message = document.getElementById('message');
+    const continueBtn = document.getElementById('continueBtn');
+    const giftScreen = document.getElementById('giftScreen');
+    const mainContent = document.getElementById('mainContent');
+    const giftHeartsContainer = document.getElementById('giftHeartsContainer');
+
+    document.body.style.overflow = 'hidden';
+    gift.addEventListener('click', () => {
+      gift.classList.add('open');
+      createGiftHearts();
+      setTimeout(() => {
+        message.style.display = 'block';
+        continueBtn.focus();
+      }, 600);
+    });
+
+    continueBtn.addEventListener('click', () => {
+      giftScreen.classList.add('hidden');
+      setTimeout(() => {
+        giftScreen.style.display = 'none';
+        mainContent.style.display = 'block';
+        document.body.style.overflow = 'auto';
+        giftScreen.setAttribute('aria-hidden', 'true');
+        giftHeartsContainer.innerHTML = '';
+      }, 500);
+    });
+    function createGiftHearts() {
+      const count = 25;
+      for (let i = 0; i < count; i++) {
+        const heart = document.createElement('div');
+        heart.textContent = '💖';
+        heart.style.position = 'absolute';
+        heart.style.left = Math.random() * 100 + '%';
+        heart.style.bottom = '-30px';
+        heart.style.fontSize = (14 + Math.random() * 26) + 'px';
+        heart.style.opacity = 0.95;
+        const duration = (2 + Math.random() * 3).toFixed(2);
+        heart.style.animation = `floatUp ${duration}s ease-out forwards`;
+        heart.style.transform = `translateX(${(Math.random() - 0.5) * 40}px)`;
+        giftHeartsContainer.appendChild(heart);
+
+        setTimeout(() => {
+          heart.remove();
+        }, (parseFloat(duration) + 0.3) * 1000);
+      }
+    }
+    const heartEmojis = ['😋', '🔵'];
+    const heartsContainer = document.getElementById('hearts-container');
+
+    setInterval(() => {
+      const heart = document.createElement('div');
+      heart.classList.add('heart');
+      heart.textContent = heartEmojis[Math.floor(Math.random() * heartEmojis.length)];
+      heart.style.left = Math.random() * 100 + 'vw';
+      heart.style.fontSize = (20 + Math.random() * 20) + 'px';
+      heartsContainer.appendChild(heart);
+      setTimeout(() => heart.remove(), 5000);
+    }, 900);
+
+    function togglePages() {
+      const container = document.getElementById('pages-container');
+      container.style.display = container.style.display === 'none' ? 'block' : 'none';
+    }
+
+    function showPage(num) {
+      document.querySelectorAll('.page').forEach(p => p.style.display = 'none');
+      const page = document.getElementById('page' + num);
+      page.style.display = 'block';
+      page.scrollIntoView({ behavior: "smooth" });
+    }
+
+    function backToList() {
+      document.querySelectorAll('.page').forEach(p => p.style.display = 'none');
+      document.getElementById('pages-list').scrollIntoView({ behavior: "smooth" });
+    }
+
+    function showSurprise() {
+      const surprise = document.getElementById("surprise");
+      surprise.style.display = "block";
+      surprise.scrollIntoView({ behavior: "smooth" });
+    }
+  </script>
+</body>
+</html>
